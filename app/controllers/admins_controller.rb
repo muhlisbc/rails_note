@@ -15,11 +15,12 @@ class AdminsController < ApplicationController
       format.json {
         year, month = [params[:year], params[:month]].map { |param| non_zero_int(param) }
         date = DateTime.new(year, month).utc rescue nil
-        status, message, data = begin
-            ["ok", "", params[:collection].capitalize.constantize.stat(date)]
+        status, message, data, expire = begin
+            ["ok", "", params[:collection].capitalize.constantize.stat(date), 3600]
           rescue
-            ["error", "Invalid parameters", {}]
+            ["error", "Invalid parameters", {}, 300]
           end
+        expires_in expire, :public => true
         render json: {status: status, message: message, data: data}
       }
     end
