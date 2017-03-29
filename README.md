@@ -2,10 +2,12 @@
 
 Simple note app built with Rails 5 and Mongoid.
 
+Demo: [https://rails-note.arukascloud.io](https://rails-note.arukascloud.io)
+
 ## Requirements
 
 * Ruby on Rails >= 5.0
-* MongoDB
+* MongoDB >= 3.0
 
 ### Environment Variables
 

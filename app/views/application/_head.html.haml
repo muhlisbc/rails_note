@@ -1,4 +1,6 @@
 %head
+  %meta{charset: "UTF-8"}
+  %meta{content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name: "viewport"}
   %title= strip_tags(@title || autotitle).truncate(50)
   = csrf_meta_tags
   - ["https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext", "https://fonts.googleapis.com/icon?family=Material+Icons", "base", "application"].each do |css_item|
