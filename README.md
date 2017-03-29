@@ -24,7 +24,7 @@ Simple note app built with Rails 5 and Mongoid.
 
 * `SECRET_KEY_BASE` You can generete one with `rake secret` command from app' root folder
 * `SPARKPOST_API_KEY` You can grab one from [https://sparkpost.com/](https://sparkpost.com/)
-* `DEFAULT_FROM_EMAIL` Dafault email from
+* `DEFAULT_FROM_EMAIL` Dafault from email
 
 ## License
 
