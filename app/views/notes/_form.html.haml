@@ -1,0 +1,42 @@
+%section.content
+  .container-fluid
+    .row.clearfix
+      .col-xs-12
+        .card
+          .header
+            %h2= params[:action].titleize
+            - if params[:action] == "edit"
+              %ul.header-dropdown.m-r--5
+                %li.dropdown
+                  %a.dropdown-toggle{href: "#", data: {toggle: "dropdown"}, role: "button", aria: {haspopup: "true", expanded: "false"}}
+                    %i.material-icons more_vert
+                  %ul.dropdown-menu.pull-right
+                    %li= link_to 'Delete', @note, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          .body
+            = form_for @note do |f|
+              .row.clearfix
+                .col-xs-12.col-sm-8
+                  .form-group
+                    .form-line
+                      = f.text_area :content, class: "tinymce", rows: 15
+                .col-xs-12.col-sm-4
+                  .form-group
+                    = f.label :title
+                    .form-line
+                      = f.text_field :title, class: "form-control"
+                  .form-group
+                    = f.label :tags
+                    .form-line
+                      = f.text_field :tag_list, class: "form-control"
+                  .form-group
+                    = label_tag :public
+                    %span.switch
+                      %label
+                        = f.check_box :is_public
+                        %span.lever
+                  .form-group
+                    = f.submit "SAVE", class: "btn btn-lg bg-pink waves-effect"
+
+- content_for :custom_js do
+  = javascript_include_tag "tinymce"
+  = tinymce

@@ -1,0 +1,53 @@
+!!!
+%html
+  = render "head"
+  %body.theme-cyan
+    .overlay
+    %nav.navbar
+      .container-fluid
+        .navbar-header
+          %a.bars{href: "javascript:void(0);"}
+          = link_to "Account Dashboard", account_path, class: "navbar-brand"
+    %section
+      %aside#leftsidebar.sidebar
+        .user-info
+          .image
+            = image_tag current_user.avatar, alt: "User", height: "48", width: "48"
+          .info-container
+            .name{aria: {expanded: "false", haspopup: "true"}, data: {toggle: "dropdown"}}= current_user.email
+            .email= current_user.is_admin ? "Admin" : "User"
+            .btn-group.user-helper-dropdown
+              %i.material-icons{aria: {expanded: "false", haspopup: "true"}, data: {toggle: "dropdown"}} keyboard_arrow_down
+              %ul.dropdown-menu.pull-right
+                %li
+                  %a{:href => setting_account_path}
+                    %i.material-icons> person
+                    = t :profile
+                %li.divider{:role => "seperator"}
+                %li
+                  %a{:href => logout_account_path}
+                    %i.material-icons> input
+                    = t :logout
+        .menu
+          %ul.list
+            %li.header= t :main_nav
+            - account_left_sb_menus.each do |item|
+              %li{class: params[:controller] == item[:ctrl] ? "active" : ""}
+                %a{left_sb_menu_link_attrs(item[:link])}
+                  %i.material-icons= item[:icon]
+                  %span= item[:text]
+                - if item[:children]
+                  %ul.ml-menu
+                    - item[:children].each do |child_text, child_link|
+                      %li{class: child_link == request.path_info ? "active" : ""}
+                        = link_to child_text, child_link
+        .legal
+          .copyright
+            © 2016
+            -#   = succeed "." do
+            -#     %a{:href => "javascript:void(0);"} AdminBSB - Material Design
+            -# .version
+            -#   %b Version:
+            -#   1.0.4
+    = yield
+    = render "js"

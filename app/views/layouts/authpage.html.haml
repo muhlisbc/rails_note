@@ -1,0 +1,13 @@
+!!!
+%html
+  = render "head"
+  %body.login-page
+    .login-box
+      .logo
+        %a{href: account_path}
+          %b Account
+          Dashboard
+      .card
+        .body
+          = yield
+    = render "js"

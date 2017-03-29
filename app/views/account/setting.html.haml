@@ -1,0 +1,16 @@
+%section.content
+  .container-fluid
+    .row.clearfix
+      .col-sm-offset-2.col-sm-8.col-xs-12
+        .card
+          .header
+            %h2 PROFILE SETTING
+          .body
+            = form_tag setting_account_path do
+              = render "alert"
+              .form-group
+                = label_tag :password
+                .form-line
+                  = text_field_tag :password, "", type: "password", class: "form-control", required: true
+              .form-group
+                = submit_tag "SAVE", class: "btn btn-lg bg-pink waves-effect"

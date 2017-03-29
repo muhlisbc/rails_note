@@ -1,0 +1,77 @@
+!!!
+%hmtl
+  %head
+    %meta{"http-equiv" => "Content-Type", content: "text/html; charset=utf-8"}
+    %meta{name: "viewport", content: "width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"}
+    %meta{name: "apple-mobile-web-app-capable", content: "yes"}
+    = render "mail_css"
+  %body{:style => "margin: 0; padding: 0; background: #fff;-webkit-text-size-adjust:100%;"}
+    %table.outer{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "position:relative;background:#ddd;", :width => "100%"}
+      %tbody
+        %tr
+          %td
+            %table.inner.frame{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "background:#fff;position:relative;border:0;border-left:1px solid #ccc;border-right:1px solid #ccc;", :width => "670"}
+              %tbody
+                %tr
+                  %td
+                    %table.header.frame{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "background:#f2f2f2;table-layout:fixed;", :width => "670"}
+                      %tbody
+                        %tr
+                          %td.header_left.cut{:style => "width:19px;height:77px;"}  
+                          %td.cut{:width => "9"}
+                          %td.main_header.media_header{:height => "77", :style => "font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;color:#333;", :width => "458"}
+                            %table{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+                              %tbody
+                                %tr
+                                  %td.main_name{:style => "font-size:14px;font-weight:bold;color:#000;"}
+                                    %span{:dir => "ltr"}>= @to
+                                    \,
+                                %tr
+                                  %td.subtitle{:style => "font-size:14px;color:#666;"}= @title
+                          %td.header_padding{:height => "77", :width => "10"}  
+                          %td.main_avatar.cut{:style => "text-align:right;", :width => "32"}
+                          %td.col.cut{:style => "width:85px;"}
+                        %tr
+                          %td.main.header_drop.cut{:style => "background:#fff;border-top:1px solid #ddd;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;"}  
+                          %td.main.header_drop.cut{:style => "background:#fff;border-top:1px solid #ddd;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;"}  
+                          %td.main.header_drop.media_header{:height => "17", :style => "background:#fff;border-top:1px solid #ddd;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;"}
+                          %td.main.header_drop.cut{:colspan => "4", :height => "17", :style => "background:#fff;border-top:1px solid #ddd;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;"}  
+                  %td{:rowspan => "3"}
+                %tr
+                  %td.content{:style => "background:#fff;"}
+                    :css
+                      @media only screen and (max-device-width: 480px) {
+                      table[class=outer] .shadow span {
+                      display:block;
+                      overflow: hidden;
+                      white-space: nowrap;
+                      text-overflow: ellipsis;
+                      width: 278px;
+                      }
+                      table[class=outer] .shadow {
+                      padding: 0 !important;
+                      }
+                      }
+                    %table.main.frame{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "background:#fff;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;", :width => "670"}
+                      %tbody
+                        %tr
+                          %td.col.cut{:style => "width:85px;"}
+                          %td.media_main
+                            = yield
+                          %td.col.cut{:style => "width:85px;"}
+                %tr
+                  %td
+                    %table.frame.footer{:bgcolor => "#eeeeee", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "background-color:#eee;background-image:url('https://ea.twimg.com/email/t1/shadow-bottom.jpg');background-position:top;background-repeat:repeat-x;border-top-color:#ddd;border-top-style:solid;border-top-width:1px;", :width => "670"}
+                      %tbody
+                        %tr
+                          %td.footer-padding-top{:colspan => "4", :height => "16"}
+                        %tr
+                          %td.col.cut{:style => "width:85px;"}
+                          %td.footer_body.media_footer{:style => "font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:12px;line-height:17px;color:#777;text-shadow:0 1px 0 #fff;"}
+                            %div
+                              %a.reset{:href => forgot_password_account_url, :style => "border:none;color:#0084b4;text-decoration:none;"} Forgot your password?
+                            .reset
+                              Please ignore if you received this message in error
+                          %td.col.cut{:style => "width:85px;"}
+                        %tr
+                          %td.footer-padding-bottom{:colspan => "3", :height => "25"}

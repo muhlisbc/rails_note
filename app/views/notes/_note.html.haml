@@ -1,0 +1,34 @@
+- is_show = true if params[:controller] == "notes" && params[:action] == "show"
+.card
+  .header
+    %h2
+      = note.title.blank? ? "Untitled" : strip_tags(is_show ? note.title : note.title.truncate(50))
+      %small
+        = time_ago_in_words(note.created_at)
+        ago
+        &middot;
+        = note.is_public ? "Public" : "Private"
+    %ul.header-dropdown.m-r--5
+      %li.dropdown
+        %a.dropdown-toggle{href: "#", data: {toggle: "dropdown"}, role: "button", aria: {haspopup: "true", expanded: "false"}}
+          %i.material-icons more_vert
+        %ul.dropdown-menu.pull-right
+          - if !is_show
+            %li= link_to "Show", note
+          %li= link_to "Edit", edit_note_path(note)
+          %li= link_to 'Delete', note, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  .body
+    %p= is_show ? note.content.html_safe : strip_tags(note.content).truncate(144)
+    %p.small
+      - note.tags.each do |tag|
+        = link_to tag, tag_notes_path(tag), class: "label bg-pink"
+  - if is_show && note.is_public
+    .footer
+      %form.form-horizontal
+        .row.clearfix
+          .col-xs-6.col-sm-3.form-control-label
+            = label_tag "Share this note"
+          .col-xs-6.col-sm-8
+            .form-group
+              .form-line
+                = text_field_tag "", share_note_url(note.id), class: "form-control"

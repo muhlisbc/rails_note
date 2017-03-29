@@ -1,0 +1,7 @@
+%section.content
+  .container-fluid
+    = render "alert"
+    .row.clearfix
+      .col-xs-12
+        = render "notes"
+        = paginate @notes

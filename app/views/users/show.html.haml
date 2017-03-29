@@ -1,0 +1,27 @@
+%section.content
+  .container-fluid
+    = render "alert"
+    .row.clearfix
+      .col-xs-12
+        .card
+          .header
+            %h2
+              = @user.email
+              %small
+                = @user.is_admin ? "Admin" : "User"
+                &middot;
+                = t :joined
+                = time_ago_in_words(@user.created_at)
+                = t :ago
+            %ul.header-dropdown.m-r--5
+              %li.dropdown
+                %a.dropdown-toggle{href: "#", data: {toggle: "dropdown"}, role: "button", aria: {haspopup: "true", expanded: "false"}}
+                  %i.material-icons more_vert
+                %ul.dropdown-menu.pull-right
+                  %li= link_to "Edit", edit_user_path(@user)
+                  %li= link_to 'Delete', @user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    .block-header
+      %h2= t :latest_note
+    .row.clearfix
+      .col-xs-12
+        = render "notes/notes"

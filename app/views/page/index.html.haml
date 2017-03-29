@@ -1,0 +1,3 @@
+.card
+  .body
+    = Kramdown::Document.new(IO.read(Rails.root.join("README.md"))).to_html.html_safe

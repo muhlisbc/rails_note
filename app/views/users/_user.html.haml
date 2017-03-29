@@ -1,0 +1,13 @@
+%a{href: user_path(user.id)}
+  .card
+    .body
+      .media{style: "margin: 0"}
+        .media-body
+          %h4.media-heading= user.email
+          = user.is_admin ? "Admin" : "User"
+          &middot;
+          = t :joined
+          = time_ago_in_words(user.created_at)
+          = t :ago
+        .media-right
+          = image_tag user.avatar, class: "media-object"

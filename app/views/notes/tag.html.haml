@@ -1,0 +1,10 @@
+%section.content
+  .container-fluid
+    .block-header
+      %h2
+        = t :tagged_with
+        %strong= params[:tag].upcase
+    .row.clearfix
+      .col-xs-12
+        = render "notes"
+        = paginate @notes

@@ -1,0 +1,25 @@
+%section.content
+  .container-fluid
+    .row.clearfix
+      - admin_info_boxes.each_with_index do |box, idx|
+        - additional_class = idx == 0 ? "col-lg-offset-3 col-md-offset-2 col-sm-offset-1" : ""
+        .col-lg-3.col-md-4.col-sm-5{class: additional_class}
+          .info-box.hover-expand-effect{class: "bg-" + box[:bg]}
+            .icon
+              %i.material-icons= box[:icon]
+            .content
+              .text= box[:text]
+              .number= box[:number]
+    - ["user", "note"].each do |item|
+      .card
+        .header
+          %h2
+            = item.pluralize.capitalize
+            = t :statistic
+        .body
+          - stat_class = "stat-" + item
+          %h5.text-center{id: stat_class + "-msg"}= t :loading_stat
+          %div.flot-chart{id: stat_class}
+
+- content_for(:custom_js) do
+  = javascript_include_tag 'stat'

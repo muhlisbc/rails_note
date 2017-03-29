@@ -1,0 +1,20 @@
+= form_for @user, url: account_path do |f|
+  = render "alert"
+  .input-group
+    %span.input-group-addon
+      %i.material-icons email
+    .form-line
+      = f.text_field :email, class: "form-control", placeholder: "Email", required: true, autofocus: true
+  .input-group
+    %span.input-group-addon
+      %i.material-icons lock
+    .form-line
+      = f.text_field :password, class: "form-control", type: "password", placeholder: "Password", required: true
+  .form-group
+    %input#terms.filled-in.chk-col-pink{type: "checkbox", name: "terms", required: ""}
+    = label_tag :terms, "I read and agree to the #{link_to "term of usage", tos_path}.".html_safe
+  .row
+    .col-xs-12
+      = submit_tag "SIGN UP", class: "btn btn-block btn-lg bg-pink waves-effect"
+    .m-t-25.m-b--5.align-center
+      = link_to "Already have an account?", login_account_path

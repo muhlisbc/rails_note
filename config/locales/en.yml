@@ -1,0 +1,31 @@
+en:
+  main_nav: MAIN NAVIGATION
+  profile:  Profile
+  logout:   Logout
+  ago:      ago
+  latest_note: LATEST NOTE
+  account:
+    confirm_email:  Your account is not activated yet. A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.
+    password_reseted: Your password has been updated. Please login with your newly created password.
+    invalid_email:  Invalid email address.
+    reset_password_email_sent: Please check your email
+    invalid_credential: Invaild email address or password.
+    updated:        Your account was successfully updated.
+    update_failed:  Failed to update your account
+    confirmed:      Your account has been successfully confirmed
+    create_failed:  Failed to create new account
+    forgot_password_msg: Enter your email address that you used to register. We'll send you an email with a link to reset your password.
+    reset_password_msg:  Create new password
+  admins:
+    statistic:    Statistic
+    loading_stat: Loading statistic
+  notes:
+    tagged_with:  NOTES TAGGED WITH
+    created:      Note was successfully created.
+    updated:      Note was successfully updated.
+    deleted:      Note was successfully deleted.
+  users:
+    created:      User was successfully created.
+    updated:      User was successfully updated.
+    deleted:      User was successfully deleted.
+    joined:       Joined

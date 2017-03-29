@@ -1,0 +1,5 @@
+- @notes.each_slice(2) do |notes|
+  .row.clearfix
+    - notes.each do |note|
+      .col-xs-12.col-sm-6
+        = render "notes/note", note: note

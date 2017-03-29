@@ -1,0 +1,10 @@
+%section.content
+  .container-fluid
+    = render "alert"
+    .row.clearfix
+      .col-xs-12
+        .row.clearfix
+          - @users.each do |user|
+            .col-xs-12.col-sm-4
+              = render "user", user: user
+        = paginate @users

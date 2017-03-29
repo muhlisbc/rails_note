@@ -1,0 +1,12 @@
+- flash.each do |k, v|
+  .alert.alert-dismissible{role: "alert", class: "alert-#{k}"}
+    %button{type: "button", class: "close", data: {dismiss: "alert"}, aria: {label: "Close"}}
+      %span{aria: {hidden: "true"}} &times
+    - if v.is_a?(Hash)
+      = v[:msg]
+      - if v[:list]
+        %ul
+          - v[:list].each do |item|
+            %li= item
+    - else
+      = v

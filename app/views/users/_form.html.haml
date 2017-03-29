@@ -1,0 +1,28 @@
+%section.content
+  .container-fluid
+    .row.clearfix
+      .col-sm-offset-2.col-sm-8.col-xs-12
+        .card
+          .header
+            %h2= params[:action].titleize
+            - if params[:action] == "edit"
+              %ul.header-dropdown.m-r--5
+                %li.dropdown
+                  %a.dropdown-toggle{href: "#", data: {toggle: "dropdown"}, role: "button", aria: {haspopup: "true", expanded: "false"}}
+                    %i.material-icons more_vert
+                  %ul.dropdown-menu.pull-right
+                    %li= link_to 'Delete', @user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          .body
+            = form_for @user do |f|
+              = render "alert"
+              .form-group
+                = f.label :email
+                .form-line
+                  = f.text_field :email, class: "form-control", required: true
+              - if params[:action] == "new"
+                .form-group
+                  = f.label :password
+                  .form-line
+                    = f.text_field :password, type: "password", class: "form-control", required: true
+              .form-group
+                = f.submit "SAVE", class: "btn btn-lg bg-pink waves-effect"
