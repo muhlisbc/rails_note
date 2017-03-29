@@ -1,10 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: default_from_email
+  default from: (Rails.env.production? ? ENV["DEFAULT_FROM_EMAIL"] : "admin@domain.com")
   layout 'mailer'
 
-  private
-
-  def default_from_email
-    Rails.env.production? ENV["DEFAULT_FROM_EMAIL"] : "admin@domain.com"
-  end
 end
