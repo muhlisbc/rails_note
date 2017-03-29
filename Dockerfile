@@ -13,7 +13,6 @@ RUN rm -f /etc/nginx/*ed/* \
 	&& mv nginx_vhost.conf /etc/nginx/*ed/ \
 	&& echo "gem: --no-document" >> $HOME/.gemrc \
 	&& bundle \
-	&& rake assets:precompile \
 	&& rm -rf /var/lib/apt/lists/* /tmp/*
 
 EXPOSE 80
