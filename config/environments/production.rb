@@ -78,9 +78,5 @@ Rails.application.configure do
   end
 
   config.action_mailer.delivery_method = :sparkpost_rails
-  config.action_mailer.testgun_settings = {
-    api_key: ENV["MAILGUN_API_KEY"],
-    domain: ENV["MAILGUN_DOMAIN"],
-  }
 
 end
