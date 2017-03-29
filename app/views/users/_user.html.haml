@@ -6,7 +6,7 @@
           %h4.media-heading= user.email
           = user.is_admin ? "Admin" : "User"
           &middot;
-          = t :joined
+          = t "users.joined"
           = time_ago_in_words(user.created_at)
           = t :ago
         .media-right

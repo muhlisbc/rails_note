@@ -29,7 +29,7 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
-
+  # config.action_controller.default_url_options = { host: "rails_note" }
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
@@ -78,5 +78,6 @@ Rails.application.configure do
   end
 
   config.action_mailer.delivery_method = :sparkpost_rails
+  config.action_mailer.default_url_options = { host: ENV["APP_HOSTNAME"] }
 
 end

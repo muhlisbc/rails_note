@@ -15,10 +15,10 @@
         .header
           %h2
             = item.pluralize.capitalize
-            = t :statistic
+            = t "admins.statistic"
         .body
           - stat_class = "stat-" + item
-          %h5.text-center{id: stat_class + "-msg"}= t :loading_stat
+          %h5.text-center{id: stat_class + "-msg"}= t "admins.loading_stat"
           %div.flot-chart{id: stat_class}
 
 - content_for(:custom_js) do

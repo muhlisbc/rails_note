@@ -25,7 +25,8 @@ Simple note app built with Rails 5 and Mongoid.
 * `SECRET_KEY_BASE` You can generete one with `rake secret` command from app' root folder
 * `SPARKPOST_API_KEY` You can grab one from [https://sparkpost.com/](https://sparkpost.com/)
 * `DEFAULT_FROM_EMAIL` Dafault from email
-
+* `RAILS_USE_SSL` (optional) Optionally force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+* `APP_HOSTNAME` Application hostname. Required by `ActionMailer`
 ## License
 
 The app is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
