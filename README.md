@@ -2,7 +2,13 @@
 
 Simple note app built with Rails 5 and Mongoid.
 
-Demo: [https://rails-note.arukascloud.io](https://rails-note.arukascloud.io)
+![Login page](https://github.com/muhlisbc/rails_note/raw/master/login_page.png)
+
+![New note page](https://github.com/muhlisbc/rails_note/raw/master/new_note_page.png)
+
+![Admin page](https://github.com/muhlisbc/rails_note/raw/master/admin_page.png)
+
+Demo: [https://rails-note.arukascloud.io/account](https://rails-note.arukascloud.io/account)
 
 ## Requirements
 
